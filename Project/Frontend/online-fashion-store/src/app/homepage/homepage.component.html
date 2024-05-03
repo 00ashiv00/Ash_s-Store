@@ -1,0 +1,56 @@
+
+ 
+    <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+      <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
+      
+      <span class="h5 text-success " style="margin-left: 20px;">Hello {{currentUser}}!</span>
+      <div class="navbar-collapse ">
+        <ul class="navbar-nav " style="margin-left: 180px;">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link " routerLink="/homepage">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/categories">Categories</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/products">Products</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/orders">Orders</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto" style="margin-right:20px;">
+          <li class="nav-item " routerLinkActive="active">
+            <a class="nav-link" routerLink="/cart">Cart</a>
+          </li>
+        </ul>
+        <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>
+        
+      </div>
+    </nav>
+  
+
+    <!-- <h1 class="gold-head" style="text-align:center">Welcome to the store!</h1>  -->
+    <header style="background: url(https://c0.wallpaperflare.com/preview/129/130/329/apparel-attire-blur-boutique.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    color: rgb(245, 243, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"> 
+        <div class="container text-end " >
+            <h1 class="h1" style="
+            font-weight: bold;margin-left: 150px ;
+        ">Welcome to Our Fashion Store</h1>
+            <p class="lead" style="margin-left: 150px;">Discover the latest trends and always stay stylish with our collections.</p>
+        </div>
+    </header>
+
+
+
+
+    
+
+ 
+

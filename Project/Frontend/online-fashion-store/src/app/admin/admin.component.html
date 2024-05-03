@@ -1,0 +1,41 @@
+<div class=" nav  d-flex justify-content-center">
+  <a class="navbar-brand"  style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
+  
+  <span class="h5 mt-2" style="margin-left: 30px;">Hello Admin!</span>
+<!-- <ul class="nav nav-tabs" style="margin-left: 50px; " >
+  <li class="nav-item">
+    <a class="nav-link" routerLink="dashboard" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+  </li>
+</ul> -->
+
+<ul class="nav nav-tabs  " style="margin-left: 200px;">
+  <li class="nav-item">
+    <a class="nav-link" routerLink="dashboard" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link " routerLink="orders" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Orders</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="products" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}">Products</a>
+    </li>
+  </ul>
+  <ul class="nav nav-tabs ms-auto">
+    <li>
+      <button class="btn btn-danger" style="margin-top: 4px;" (click)="logout()">Log Out</button>
+    </li>
+  </ul>
+</div>
+
+<section class="vh-100" style="background-color: #eee;">
+<router-outlet></router-outlet>
+</section>
+
+
+
+
+

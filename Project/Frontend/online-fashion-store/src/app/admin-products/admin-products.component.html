@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <h3 class="text-center">Products</h3>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th class="text-center">ProductId</th>
+                    <th class="text-center">Product Name</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Availability</th>
+                    <!-- <th>Category Id</th> -->
+                    
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of products" >
+                            <td class="text-center">{{item.productId}}</td>
+                            <td class="text-center">{{item.productName}}</td>
+                            <td class="text-center">{{item.price}}</td>
+                            <td class="text-center">{{item.availability}}</td>
+                            
+                            <!-- <td><button class="btn btn-primary" > Click to view order details</button></td> -->
+                            
+                            <td class="text-center"> <button class="btn btn-warning" (click)="updateProduct(item.productId)" > Edit Product</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <a routerLink="add"><button class="btn btn-success mb-2" style="margin:auto; display:block;" > Add New Product</button></a>
+    </div>
+</div>

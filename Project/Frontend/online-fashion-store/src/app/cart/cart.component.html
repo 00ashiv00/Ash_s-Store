@@ -1,0 +1,138 @@
+<!-- <div class="container">
+    <div class="card">
+        <h3 class="text-center">Cart</h3>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <th>CartId</th>
+                    <th>Quantity</th>
+                    
+                    <th>ProductId</th>
+
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cart">
+                            <td>{{item.cart_id}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.products.productId}}</td>
+                            
+                    </tr>
+                </tbody>
+            </table>
+            <a routerLink="/orders"><button class="btn btn-primary" (click)="newOrder()"> Place Order</button></a>
+        </div>
+
+    </div>
+</div> -->
+
+ 
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
+  
+
+  <div class="navbar-collapse ">
+    <ul class="navbar-nav " style="margin-left: 300px;">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link " routerLink="/homepage">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/categories">Categories</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/orders">Orders</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto" style="margin-right:20px;">
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" routerLink="/cart">Cart</a>
+      </li>
+    </ul>
+    <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>
+    
+  </div>
+</nav>
+  
+
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <p><span class="h2">Shopping Cart </span><span class="h4">({{this.cart.length}} item in your cart)</span></p>
+  
+          <div class="card mb-4">
+            <div class="card-body p-4">
+  
+              <div class="row align-items-center mb-3" *ngFor="let item of cart;let i=index">
+                
+                <div class="col-md-1 d-flex justify-content-center" >
+                  <div>
+                    <p class="small text-muted mb-4 pb-2 d-flex justify-content-center">Sl no</p>
+                    <p class="d-flex justify-content-center">{{i+1}}</p>
+                  </div>
+                </div>
+                    
+                
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2 d-flex justify-content-center">Product Id</p>
+                    <p class="d-flex justify-content-center">
+                      {{item.products.productId}}</p>
+                  </div>
+                </div>
+                
+                <div class="col-md-3 d-flex justify-content-center ">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2 d-flex justify-content-center ">Product Name</p>
+                    <p class="d-flex justify-content-center ">
+                      {{item.products.productName}}</p>
+                  </div>
+                </div>
+
+
+                <div class="col-md-2 d-flex justify-content-center ">
+                  <div>
+                    <p class="small text-muted mb-4 pb-2 d-flex justify-content-center">Quantity</p>
+                    <p class=" d-flex justify-content-center">{{item.quantity}}</p>
+                  </div>
+                </div>
+
+                <div class="col-md-2 d-flex justify-content-center">
+                  <div>
+                    <button class="btn btn-md btn-warning mt-5" (click)="removeItem(item.cartId)"> Remove Item</button>
+                  </div>
+                </div>
+
+            
+              </div>
+  
+            </div>
+          </div>
+
+          <div class="card mb-5">
+            <div class="card-body p-4">
+  
+              <div class="float-end">
+                <p class="mb-0 me-5 d-flex align-items-center">
+                  <span class="small text-muted me-2">Order total:</span> <span
+                    class="lead fw-normal">Rs. {{totalPrice}}</span>
+                </p>
+              </div>
+  
+            </div>
+          </div>
+  
+  
+          <div class="d-flex justify-content-end">
+            <a routerLink="/products"><button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-lg me-2">Continue shopping</button></a>
+            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg" (click)="newOrder()" [disabled]="this.cart.length===0">Place order</button>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+

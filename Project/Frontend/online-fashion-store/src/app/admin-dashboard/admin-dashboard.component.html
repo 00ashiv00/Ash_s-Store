@@ -1,0 +1,131 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container-fluid">
+    <section>
+      <div class="row">
+        <div class="col-12 mt-3 mb-1">
+          <h2 class="text-uppercase text-secondary">Dashboard</h2>
+          <p>Statistics </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-secondary">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div>
+                    <h4 class="h4 text-white">Total Orders</h4>
+                    <!-- <p class="mb-0">Monthly blog posts</p> -->
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">{{totalOrders}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-danger">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+
+                  <div>
+                    <h4 class="h4 text-white">Cancelled Orders</h4>
+                    <!-- <p class="mb-0">Monthly blog posts</p> -->
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">{{cancelledOrders}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-primary">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  
+                  <div>
+                    <h4 class="h4 text-white">Current Placed Orders</h4>
+                    <!-- <p class="mb-0">Monthly blog posts</p> -->
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">{{placedOrders}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-warning">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+                  <div>
+                    <h4 class="text-white">Current Shipped Orders</h4>
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">{{shippedOrders}}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-success">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+
+                  <div>
+                    <h4 class="text-white"> Delivered Orders</h4>
+
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">{{deliveredOrders}}</h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+           
+        </div>
+        <div class="col-xl-6 col-md-12 mb-4">
+          <div class="card bg-dark">
+            <div class="card-body">
+              <div class="d-flex justify-content-between p-md-1">
+                <div class="d-flex flex-row">
+
+                  <div>
+                    <h4 class="text-white"> Total Earnings</h4>
+
+                  </div>
+                </div>
+                <div class="align-self-center">
+                  <h2 class="h1 mb-0 text-white">Rs. {{totalEarnings}}</h2>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</section>

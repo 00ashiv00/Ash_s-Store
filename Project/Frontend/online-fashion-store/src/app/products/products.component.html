@@ -1,0 +1,94 @@
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
+  
+
+  <div class="navbar-collapse ">
+    <ul class="navbar-nav " style="margin-left: 300px;">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link " routerLink="/homepage">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/categories">Categories</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/products">Products</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/orders">Orders</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto" style="margin-right:20px;">
+      <li class="nav-item " routerLinkActive="active">
+        <a class="nav-link" routerLink="/cart">Cart</a>
+      </li>
+    </ul>
+    <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>
+    
+  </div>
+</nav>
+
+<section style="background-color: #eee">
+    <div class="container py-5">
+      <div class="row justify-content-center mb-3" *ngFor="let product of products">
+        <div class="col-md-12 col-xl-10">
+          <div class="card shadow-0 border rounded-3">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                  <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                    <img src={{product.imageLink}}
+                      class="w-100" />
+                    <a href="#!">
+                      <div class="hover-overlay">
+                        <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-6">
+                  <h5>{{product.productName}}</h5>
+                  <div class="d-flex flex-row">
+                    <span>{{product.productId}}</span>
+                  </div>
+                  <div class="mt-1 mb-0 text-muted small">
+                    <span>{{product.productDescription}}</span>
+                    <span class="text-primary"> • </span>
+                    <span>Light weight</span>
+                    <span class="text-primary"> • </span>
+                    <span>Best finish<br /></span>
+                  </div>
+                  <div class="mb-2 text-muted small">
+                    <span>Unique design</span>
+                    <!-- <span class="text-primary"> • </span>
+                    <span></span> -->
+                    <span class="text-primary"> • </span>
+                    <span>Casual<br /></span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                  <div class="d-flex flex-row align-items-center mb-1">
+                    <h4 class="mb-1 me-1 " style="margin-left: 65px;"> Rs. {{product.price}}</h4>
+                    <!-- <span class="text-danger"><s>$21.99</s></span> -->
+                  </div>
+                  <h6 class="text-success" style="margin-left: 55px;">Free shipping!</h6>
+                  <div class="d-flex flex-column mt-4 container">
+                    <select [disabled]="product.availability===0" style="width: 175px; height: 35px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; padding: 5px;" (select)="changeQuant($event)">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div class="d-flex flex-column mt-4 container">
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm" type="button"  (click)="addToCart(product.productId)" [disabled]="product.availability<=0">Add to Cart</button>
+                  </div>
+                  <div *ngIf="product.availability<=0" class="text-danger" style="margin-left: 40px;">Item Out Of Stock!</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </section>

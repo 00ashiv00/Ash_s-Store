@@ -1,0 +1,41 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Add New Product </h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label class="form-label" for="productName"> Product Name</label>
+            <input type="text" class="form-control" id="productName" formControlName="productName" [(ngModel)]="product.productName">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="price"> Price</label>
+            <input type="text" class="form-control" id="price" formControlName="productPrice" [(ngModel)]="product.price" >
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="availability" > Availability</label>
+            <input type="text" class="form-control" id="availability" formControlName="productAvailability" [(ngModel)]="product.availability">
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"  for="productDescription">Description</label>
+            <input type="text" class="form-control" id="poductDescription" formControlName="productDescription"  [(ngModel)]="product.productDescription" >
+        </div>
+
+
+        <div class="form-group">
+            <label  class="form-label" for="catId">Category Id</label>
+            <input type="text" class="form-control" id="catId" formControlName="catId" [(ngModel)]="categroryId">
+        </div>
+
+        <div class="form-group">
+            <label  class="form-label" for="img">Product Image Link</label>
+            <input type="text" class="form-control" id="img" formControlName="imageLink" [(ngModel)]="product.imageLink">
+        </div>
+
+        <div class="d-flex justify-content-center mt-2">
+            <button class="btn btn-success " style="margin-right: 10px;" type="submit" [disabled]="form.invalid">Add</button>
+            <a routerLink="/admin/products"><button class="btn btn-primary " type="submit">Go back</button></a>
+        </div>
+    </form>
+</div>

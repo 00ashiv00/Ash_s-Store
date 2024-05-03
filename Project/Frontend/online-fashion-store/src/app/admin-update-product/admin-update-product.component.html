@@ -1,0 +1,49 @@
+
+<div class="col-md-6 offset-md-3">
+    <h3>Update Product</h3>
+    <form >
+
+        <div class="form-group">
+            <label for="name"> Product Name</label>
+            <input id="name" type="text" class="form-control" [(ngModel)]="prod.productName" [ngModelOptions]="{standalone: true}"
+                 >
+        </div>
+
+        <div class="form-group">
+            <label for="price"> Price</label>
+            <input id="price" type="text" class="form-control" [(ngModel)]="prod.price" [ngModelOptions]="{standalone: true}" 
+                >
+        </div>
+
+        <div class="form-group">
+            <label for="availability"> Availability</label>
+            <input id="availability" type="text" class="form-control" [(ngModel)]="prod.availability" [ngModelOptions]="{standalone: true}"
+                 >
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <input id="Description" type="text" class="form-control" [(ngModel)]="prod.productDescription" [ngModelOptions]="{standalone: true}"
+                 >
+        </div>
+
+
+        <!-- <div class="form-group">
+            <label>Category Id</label>
+            <input type="text" class="form-control" [(ngModel)]="categroryId" 
+                >
+        </div> -->
+        <div class="form-group">
+            <label for="image" >Product Image Link</label>
+            <input id="image" type="text" class="form-control" [(ngModel)]="prod.imageLink" [ngModelOptions]="{standalone: true}"
+                 >
+        </div>
+
+        <div class="d-flex justify-content-center mt-2">
+            <button class="btn btn-success " style="margin-right: 10px;" type="submit" (click)="updateTheProduct()">Update</button>
+            <button class="btn btn-danger " style="margin-right: 10px;" type="submit" (click)="deleteTheProduct()">Delete</button>
+
+            <a routerLink="/admin/products"><button class="btn btn-primary " type="submit">Go back</button></a>
+        </div>
+    </form>
+</div>
