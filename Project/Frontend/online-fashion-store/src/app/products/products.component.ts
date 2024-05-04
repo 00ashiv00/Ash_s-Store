@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../cart';
-import { OfsServiceService } from '../ofs-service.service';
+import { OfsServiceService } from '../ofs.service';
 import { Products } from '../products';
 
 @Component({
@@ -25,12 +25,6 @@ constructor(private service: OfsServiceService,private router:Router) { }
     });
   }
 
-  changeQuant($event){
-    this.quant=$event.target.value
-  }
-    
-  
-
     
   
   addToCart(id:number){
@@ -40,6 +34,12 @@ constructor(private service: OfsServiceService,private router:Router) { }
       console.log(data);
       alert(data);
     });
+    
+  }
+
+
+  onUpdateQuantity($event:Event){
+    this.quant=Number((<HTMLInputElement>event.target).value);
     
   }
 

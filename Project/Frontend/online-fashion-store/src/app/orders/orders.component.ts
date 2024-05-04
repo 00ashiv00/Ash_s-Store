@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { OfsServiceService } from '../ofs-service.service';
+import { OfsServiceService } from '../ofs.service';
 import { Orders } from '../orders';
 
 @Component({

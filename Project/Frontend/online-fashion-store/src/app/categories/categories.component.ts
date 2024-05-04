@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categories } from '../categories';
-import { OfsServiceService } from '../ofs-service.service';
+import { OfsServiceService } from '../ofs.service';
 
 @Component({
   selector: 'app-categories',

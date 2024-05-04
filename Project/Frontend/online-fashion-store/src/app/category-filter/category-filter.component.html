@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+<!-- <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
   <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
   
 
@@ -25,7 +25,8 @@
     <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>
     
   </div>
-</nav>
+</nav> -->
+<app-user-header></app-user-header>
   
   
   <section style="background-color: #eee">
@@ -79,13 +80,15 @@
                     </div>
                     <h6 class="text-success">Free shipping</h6>
                     <div class="d-flex flex-column mt-4">
-                      <select data-mdb-select-init [(ngModel)]="this.quant">
+                      <!-- <select data-mdb-select-init [(ngModel)]="this.quant">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                      </select>
+                      </select> -->
+                    <label for="quantity"></label>
+                    <input id="quantity" type="number" (input)="onUpdateQuantity($event)" min="1">
                     </div>
                     <div class="d-flex flex-column mt-4">
                       <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm" type="button" (click)="addToCart(item.productId)">Add to Cart</button>

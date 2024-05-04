@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Cart } from '../cart';
 import { Categories } from '../categories';
-import { OfsServiceService } from '../ofs-service.service';
+import { OfsServiceService } from '../ofs.service';
 import { Products } from '../products';
 
 @Component({
@@ -41,6 +41,11 @@ export class CategoryFilterComponent {
     localStorage.removeItem('session');
     localStorage.removeItem('type');
     this.router.navigate(['']);
+    }
+
+    onUpdateQuantity($event:Event){
+      this.quant=Number((<HTMLInputElement>event.target).value);
+      
     }
 
     addToCart(id:number){

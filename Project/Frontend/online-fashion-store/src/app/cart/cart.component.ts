@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../cart';
-import { OfsServiceService } from '../ofs-service.service';
+import { OfsServiceService } from '../ofs.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,6 +18,7 @@ export class CartComponent  {
   // cartItems:number;
   
   constructor(private service:OfsServiceService,private router: Router){}
+  
 
   ngOnInit(): void {
     let userName=localStorage.getItem('session')
@@ -62,7 +63,8 @@ export class CartComponent  {
       alert('Item Removed from cart');
     });
     setTimeout(() => {
-      this.router.navigate(['/homepage']);
+      // this.router.navigate(['/homepage']);
+    window.location.reload();
     }, 1000);
 
   }
