@@ -11,9 +11,10 @@ import com.cognizant.training.onlineFashionStore.model.Users;
 @Repository
 public interface UsersRepository extends JpaRepository<Users,Integer>{
 
-	
 	@Query(nativeQuery = true, value = "SELECT * FROM users WHERE user_name=:name")
 	Users getByUserName(@Param("name") String names);
+	
+	
 	
 
 }

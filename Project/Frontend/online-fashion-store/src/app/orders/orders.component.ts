@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OfsServiceService } from '../ofs.service';
-import { Orders } from '../orders';
+import { Orders } from '../models/orders';
 
 @Component({
   selector: 'app-orders',
@@ -31,7 +31,8 @@ export class OrdersComponent {
       console.log(data);
       alert(data);
       
-    });
+    },error=>alert(error.error)
+    );
     this.router.navigate(['homepage'])
 
   }

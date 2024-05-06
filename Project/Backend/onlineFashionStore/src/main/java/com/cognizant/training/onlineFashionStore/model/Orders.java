@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,7 +39,7 @@ public class Orders {
 	@JsonIgnore
 	private Users users;
 	
-	@OneToMany(mappedBy="orders")
+	@OneToMany(mappedBy="orders",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<OrderDetails> orderDetails=new ArrayList<>();
 	

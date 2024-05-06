@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OfsServiceService } from '../ofs.service';
-import { User } from '../user';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-users',

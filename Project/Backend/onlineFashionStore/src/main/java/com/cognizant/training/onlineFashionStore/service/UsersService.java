@@ -41,6 +41,27 @@ public class UsersService {
 	public void removeUserByid(int userId) {
 		usersRepo.deleteById(userId);
 	}
+
+	public Users getUserByUserName(String userName) {
+		return usersRepo.getByUserName(userName);
+	}
+
+	public void UpdateUser(Users user) {
+		// TODO Auto-generated method stub
+		Users person=usersRepo.findById(user.getUserId()).get();
+		person.setUserName(user.getUserName());
+		person.setAddress(user.getAddress());
+		person.setFullName(user.getFullName());
+		person.setUserId(user.getUserId());
+		person.setEmail(user.getEmail());
+		person.setGender(user.getGender());
+		person.setMobileNo(user.getMobileNo());
+		person.setOrders(user.getOrders());
+		person.setCart(user.getCart());
+		person.setPassword(user.getPassword());
+		usersRepo.save(person);
+		
+	}
 	
 	
 	

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OfsServiceService } from '../ofs.service';
-import { Orders } from '../orders';
+import { Orders } from '../models/orders';
 
 @Component({
   selector: 'app-admin-dashboard',

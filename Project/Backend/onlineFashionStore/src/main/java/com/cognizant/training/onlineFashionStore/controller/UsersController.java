@@ -29,6 +29,11 @@ public class UsersController {
 			return userService.allUsers();	
 		}
 		
+		@GetMapping("/user-details/{userName}")
+		public Users getUserByUserName(@PathVariable String userName) {
+			return userService.getUserByUserName(userName);	
+		}
+		
 		@GetMapping("/users/{id}")
 		public Optional<Users> getUserByUserId(@PathVariable int id) {
 			return userService.UserById(id);
@@ -37,6 +42,11 @@ public class UsersController {
 		@PostMapping("/users/add")
 		public void newProduct(@RequestBody Users user) {
 			userService.addUser(user);
+		}
+		
+		@PostMapping("/users/update")
+		public void updateExistingUser(@RequestBody Users user) {
+			userService.UpdateUser(user);
 		}
 		
 		@DeleteMapping("/users/{id}")

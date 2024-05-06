@@ -15,5 +15,8 @@ public interface OrdersRepository extends JpaRepository<Orders, Integer> {
 	
 	@Query(nativeQuery = true, value = "SELECT * FROM Orders WHERE status='Shipped'")
 	List<Orders> findShippedOrders();
+	
+	
+	
 
 }

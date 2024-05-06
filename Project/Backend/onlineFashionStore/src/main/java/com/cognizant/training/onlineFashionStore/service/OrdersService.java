@@ -57,12 +57,16 @@ public class OrdersService {
 		if(ordersRepo.getReferenceById(id).getStatus().equals("Cancelled")) {
 			throw new ResourceNotFoundException("Order is already cancelled.");
 		}
+//		if(ordersRepo.getReferenceById(id).getStatus().equals("Shipped")) {
+//			throw new ResourceNotFoundException("Order Cannot be cancelled as it has been shipped.");
+//		}
 		
 		List<OrderDetails> orderDetails=orderDetailsRepo.findOrderDetailsWithOrderId(id);
 		for(OrderDetails orderdetail:orderDetails) {
 			productsRepo.getReferenceById(orderdetail.getProducts().getProductId()).setAvailability(orderdetail.getProducts().getAvailability()+orderdetail.getQuantity());
 //			orderDetailsRepo.deleteById(orderdetail.getOrderDetailsId());
 		}
+		
 		Orders updateOrder = ordersRepo.findById(id).get();
         updateOrder.setStatus("Cancelled");
         ordersRepo.save(updateOrder);
@@ -95,4 +99,6 @@ public class OrdersService {
 		return ordersByUser;
 		
 	}
+
+
 }

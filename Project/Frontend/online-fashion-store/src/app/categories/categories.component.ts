@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Categories } from '../categories';
+import { Categories } from '../models/categories';
 import { OfsServiceService } from '../ofs.service';
 
 @Component({

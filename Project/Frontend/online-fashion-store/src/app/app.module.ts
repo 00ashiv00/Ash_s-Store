@@ -24,6 +24,8 @@ import { AdminUpdateOrderComponent } from './admin-update-order/admin-update-ord
 import { ErrorComponent } from './error/error.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
+import { AdminOrderDetailsComponent } from './admin-order-details/admin-order-details.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 
@@ -48,7 +50,9 @@ import { UserHeaderComponent } from './user-header/user-header.component';
     AdminUpdateOrderComponent,
     ErrorComponent,
     AdminDashboardComponent,
-    UserHeaderComponent
+    UserHeaderComponent,
+    AdminOrderDetailsComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@
             <table class="table table-striped">
                 <thead>
                     <th>OrderId</th>
+                    <th>UserId</th>
+                    <th>Ordered By</th>
                     <th>Status</th>
                     <th>TotalAmount</th>
                     <th>orderDate</th>
@@ -13,12 +15,14 @@
                 <tbody>
                     <tr *ngFor="let order of orders" >
                             <td>{{order.orderId}}</td>
+                            <td>{{getUserId(order.orderId)}}</td>
+                            <td>{{getUserName(order.orderId)}}</td>
                             <td>{{order.status}}</td>
                             <td>{{order.totalAmount}}</td>
                             <td>{{order.orderDate}}</td>
-                            <!-- <td><button class="btn btn-primary" > Click to view order details</button></td> -->
                             
-                            <td><a ><button class="btn btn-success" (click)="updateOrder(order.orderId)"> Update Order Status</button></a></td>
+                            <td><button class="btn btn-sm btn-primary" (click)="goToOrderDetails(order.orderId)"  > View Order Details</button></td>
+                            <td><button class="btn btn-success" (click)="updateOrder(order.orderId)" > Update Order Status</button></td>
                     </tr>
                 </tbody>
             </table>

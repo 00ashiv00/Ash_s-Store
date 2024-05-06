@@ -2,6 +2,7 @@ package com.cognizant.training.onlineFashionStore.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -47,7 +48,7 @@ public class Users {
 		this.cart = cart;
 	}
 
-	@OneToMany(mappedBy="users")
+	@OneToMany(mappedBy="users",cascade=CascadeType.REMOVE)
 	private List<Orders> orders;
 
 	@OneToMany(mappedBy="users")

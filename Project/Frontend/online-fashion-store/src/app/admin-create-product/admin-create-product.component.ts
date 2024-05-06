@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { OfsServiceService } from '../ofs.service';
-import { Products } from '../products';
+import { Products } from '../models/products';
 
 @Component({
   selector: 'app-admin-create-product',

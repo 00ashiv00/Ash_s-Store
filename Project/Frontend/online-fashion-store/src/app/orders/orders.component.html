@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+<!-- <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
   <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
   
 
@@ -25,39 +25,9 @@
     <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>
     
   </div>
-</nav>
+</nav> -->
+<app-user-header></app-user-header>
 
-
-<!-- <section style="background-color: #eee">
-<div class="container">
-    <div class="card">
-        <h3 class="text-center">Orders</h3>
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <th>OrderId</th>
-                    <th>Status</th>
-                    <th>TotalAmount</th>
-                    <th>orderDate</th>
-
-                </thead>
-                <tbody>
-                    <tr *ngFor="let order of orders">
-                            <td>{{order.orderId}}</td>
-                            <td>{{order.status}}</td>
-                            <td>{{order.totalAmount}}</td>
-                            <td>{{order.orderDate}}</td>
-                            <td><button class="btn btn-primary" (click)="goToOrderDetails(order.orderId)"> Click to view order details</button></td>
-                            <td><a routerLink="/homepage"><button class="btn btn-danger" (click)="cancelOrder(order.orderId)" [disabled]="order.status==='Cancelled'||order.status==='Delivered'"> Cancel Order</button></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-</div>
-
-</section> -->
 <section class="vh-100" style="background-color: #eee"> 
 <div class="container ">
   <h1 class="h1 text-secondary" style=" text-align:left; margin-bottom: 40px;">Your Placed Orders!</h1>

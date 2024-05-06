@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cart } from '../cart';
-import { Categories } from '../categories';
+import { Cart } from '../models/cart';
+import { Categories } from '../models/categories';
 import { OfsServiceService } from '../ofs.service';
-import { Products } from '../products';
+import { Products } from '../models/products';
 
 @Component({
   selector: 'app-category-filter',

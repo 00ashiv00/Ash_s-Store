@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { adminAuthGuard } from './admin-auth.guard';
 import { AdminCreateProductComponent } from './admin-create-product/admin-create-product.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminOrderDetailsComponent } from './admin-order-details/admin-order-details.component';
 import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AdminUpdateOrderComponent } from './admin-update-order/admin-update-order.component';
@@ -19,6 +20,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { userAuthGuard } from './user-auth.guard';
+import { UserDetailsComponent } from './user-details/user-details.component';
 import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
@@ -28,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'order-details/:id',canActivate:[userAuthGuard], component: OrderDetailsComponent },
   { path: 'products',canActivate:[userAuthGuard], component: ProductsComponent },
   { path: 'cart',canActivate:[userAuthGuard], component: CartComponent },
+  { path: 'user-details',canActivate:[userAuthGuard], component: UserDetailsComponent },
   { path: 'sign-up', component: UsersComponent },
   { path: 'categories', canActivate:[userAuthGuard],component: CategoriesComponent },
   { path: 'categories/:name', canActivate:[userAuthGuard],component: CategoryFilterComponent },
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
       { path: 'products', component: AdminProductsComponent },
       { path: 'products/add', component: AdminCreateProductComponent },
       { path: 'products/update/:id', component: AdminUpdateProductComponent },
-      { path: 'orders/update/:id',  component: AdminUpdateOrderComponent }]
+      { path: 'orders/update/:id',  component: AdminUpdateOrderComponent },
+      { path: 'orders/order-details/:id',  component: AdminOrderDetailsComponent }]
   },
   { path: '**',component:ErrorComponent}
   

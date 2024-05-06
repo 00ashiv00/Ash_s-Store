@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OfsServiceService } from '../ofs.service';
-import { OrderDetails } from '../order-details';
+import { OrderDetails } from '../models/order-details';
 
 
 @Component({

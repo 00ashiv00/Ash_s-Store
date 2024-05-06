@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cart } from './cart';
-import { Categories } from './categories';
-import { OrderDetails } from './order-details';
-import { Orders } from './orders';
-import { Products } from './products';
-import { User } from './user';
+import { Cart } from './models/cart';
+import { Categories } from './models/categories';
+import { OrderDetails } from './models/order-details';
+import { Orders } from './models/orders';
+import { Products } from './models/products';
+import { User } from './models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfsServiceService {
+ 
+  
   baseOrderUrl="http://localhost:8080/orders";
   baseUsersUrl="http://localhost:8080/users";
   baseOrderDetailsUrl="http://localhost:8080/order-details/order";
@@ -29,6 +31,8 @@ export class OfsServiceService {
   baseCartByUserURL="http://localhost:8080/cart/user";
   baseRemoveCartItemURL="http://localhost:8080/cart";
   baseDeleteProductURL="http://localhost:8080/products";
+  baseUserByUserNameUrl="http://localhost:8080/user-details"; 
+  baseUpdateUserURL="http://localhost:8080/users/update";
  
 
   constructor(private http:HttpClient) { }
@@ -42,8 +46,14 @@ export class OfsServiceService {
     
   }
 
+
+
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(`${this.baseUsersUrl}`);
+  }
+
+  getUserByUserName(userName: string) {
+    return this.http.get<User>(`${this.baseUserByUserNameUrl}/${userName}`);
   }
 
   getOrderDetails(id:number): Observable<OrderDetails[]>{
@@ -92,6 +102,12 @@ export class OfsServiceService {
   createNewUser(user:User): Observable<Object>{
     return this.http.post(`${this.baseCreateUserURL}`,user);
   }
+
+  updateUser(user:User): Observable<Object>{
+    return this.http.post(`${this.baseUpdateUserURL}`,user);
+  }
+
+  
 
   cancelTheOrder(id:number):Observable<Object>{
     return this.http.delete(`${this.baseCancelOrderURL}/${id}`,{ responseType: 'text' });
