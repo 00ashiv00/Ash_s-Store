@@ -45,9 +45,6 @@ const appRoutes: Routes = [
       { path: 'orders/order-details/:id',  component: AdminOrderDetailsComponent }]
   },
   { path: '**',component:ErrorComponent}
-  
-
-
 ];
 
 @NgModule({

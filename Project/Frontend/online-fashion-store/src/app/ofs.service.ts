@@ -12,70 +12,40 @@ import { User } from './models/user';
   providedIn: 'root'
 })
 export class OfsServiceService {
- 
+  
   
   baseOrderUrl="http://localhost:8080/orders";
-  baseUsersUrl="http://localhost:8080/users";
-  baseOrderDetailsUrl="http://localhost:8080/order-details/order";
-  baseProductUrl="http://localhost:8080/products";
-  baseCartUrl="http://localhost:8080/cart";
-  baseCreateOrderURL="http://localhost:8080/cart-order";
-  baseCreateCartItemURL="http://localhost:8080/cart/add";
-  baseCreateUserURL="http://localhost:8080/users/add";
-  baseCancelOrderURL="http://localhost:8080/orders";
-  baseCategoriesURL="http://localhost:8080/categories";
-  baseCreateNewProductURL="http://localhost:8080/products/add";
-  baseUpdateProductURL="http://localhost:8080/products/update";
-  baseUpdateOrderURL="http://localhost:8080/orders/update";
   baseOrderByUsersUrl="http://localhost:8080/orders/user";
-  baseCartByUserURL="http://localhost:8080/cart/user";
-  baseRemoveCartItemURL="http://localhost:8080/cart";
-  baseDeleteProductURL="http://localhost:8080/products";
+  baseUpdateOrderURL="http://localhost:8080/orders/update";
+  baseCreateOrderURL="http://localhost:8080/cart-order";
+  baseCancelOrderURL="http://localhost:8080/orders";
+
+  baseUsersUrl="http://localhost:8080/users";
   baseUserByUserNameUrl="http://localhost:8080/user-details"; 
   baseUpdateUserURL="http://localhost:8080/users/update";
+  baseCreateUserURL="http://localhost:8080/users/add";
+
+  baseOrderDetailsUrl="http://localhost:8080/order-details/order";
+
+  baseProductUrl="http://localhost:8080/products";
+  baseCreateNewProductURL="http://localhost:8080/products/add";
+  baseUpdateProductURL="http://localhost:8080/products/update";
+  baseDeleteProductURL="http://localhost:8080/products";
+
+  baseCategoriesURL="http://localhost:8080/categories";
+
+  baseCartUrl="http://localhost:8080/cart";
+  baseCreateCartItemURL="http://localhost:8080/cart/add";
+  baseCartByUserURL="http://localhost:8080/cart/user";
+  baseRemoveCartItemURL="http://localhost:8080/cart";
  
 
   constructor(private http:HttpClient) { }
 
+
+  //Orders
   getOrders(): Observable<Orders[]>{
     return this.http.get<Orders[]>(`${this.baseOrderUrl}`);
-  }
-
-  getOrdersByUserName(userName: string):Observable<Orders[]> {
-    return this.http.get<Orders[]>(`${this.baseOrderByUsersUrl}/${userName}`);
-    
-  }
-
-
-
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.baseUsersUrl}`);
-  }
-
-  getUserByUserName(userName: string) {
-    return this.http.get<User>(`${this.baseUserByUserNameUrl}/${userName}`);
-  }
-
-  getOrderDetails(id:number): Observable<OrderDetails[]>{
-    return this.http.get<OrderDetails[]>(`${this.baseOrderDetailsUrl}/${id}`);
-    
-  }
-
-  getCategories():Observable<Categories[]>{
-    return this.http.get<Categories[]>(`${this.baseCategoriesURL}`);
-  }
-
-  getProducts(): Observable<Products[]>{
-    return this.http.get<Products[]>(`${this.baseProductUrl}`);
-  }
-  
-  getCart(): Observable<Cart[]>{
-    return this.http.get<Cart[]>(`${this.baseCartUrl}`);
-  }
-
-  getCartByUser(userName: string):Observable<Cart[]> {
-    return this.http.get<Cart[]>( `${this.baseCartByUserURL}/${userName}`);
-      
   }
 
   createOrder(cart: Cart[]): Observable<Object>{
@@ -87,32 +57,80 @@ export class OfsServiceService {
     
   }
 
-  createCartItem(id:number,cart:Cart): Observable<Object>{
-    return this.http.post(`${this.baseCreateCartItemURL}/${id}`,cart);
+  getOrdersByUserName(userName: string):Observable<Orders[]> {
+    return this.http.get<Orders[]>(`${this.baseOrderByUsersUrl}/${userName}`);
+    
   }
 
-  createCartItemByUser(userName:string,id:number,cart:Cart): Observable<Object>{
-    return this.http.post(`${this.baseCreateCartItemURL}/${userName}/${id}`,cart,{ responseType: 'text' });
+  UpdateOrder(order:Orders,id:number):Observable<object>{
+    return this.http.put(`${this.baseUpdateOrderURL}/${id}`,order);
   }
-
-  removeCartItem(id: number):Observable<Object>{
-    return this.http.delete(`${this.baseRemoveCartItemURL}/${id}`);
-  }
-
-  createNewUser(user:User): Observable<Object>{
-    return this.http.post(`${this.baseCreateUserURL}`,user);
-  }
-
-  updateUser(user:User): Observable<Object>{
-    return this.http.post(`${this.baseUpdateUserURL}`,user);
-  }
-
-  
 
   cancelTheOrder(id:number):Observable<Object>{
     return this.http.delete(`${this.baseCancelOrderURL}/${id}`,{ responseType: 'text' });
   }
+  
+  
+  //Users
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.baseUsersUrl}`);
+  }
+  
+  getUserByUserName(userName: string) {
+    return this.http.get<User>(`${this.baseUserByUserNameUrl}/${userName}`);
+  }
+  
+  createNewUser(user:User): Observable<Object>{
+    return this.http.post(`${this.baseCreateUserURL}`,user);
+  }
+  
+  updateUser(user:User): Observable<Object>{
+    return this.http.post(`${this.baseUpdateUserURL}`,user);
+  }
 
+
+
+  //OrderDetails
+  getOrderDetails(id:number): Observable<OrderDetails[]>{
+    return this.http.get<OrderDetails[]>(`${this.baseOrderDetailsUrl}/${id}`);
+    
+  }
+
+
+  //Categories
+  getCategories():Observable<Categories[]>{
+    return this.http.get<Categories[]>(`${this.baseCategoriesURL}`);
+  }
+
+
+  //Cart
+  getCart(): Observable<Cart[]>{
+    return this.http.get<Cart[]>(`${this.baseCartUrl}`);
+  }
+  
+  getCartByUser(userName: string):Observable<Cart[]> {
+    return this.http.get<Cart[]>( `${this.baseCartByUserURL}/${userName}`);
+    
+  }
+  
+  createCartItem(id:number,cart:Cart): Observable<Object>{
+    return this.http.post(`${this.baseCreateCartItemURL}/${id}`,cart);
+  }
+  
+  createCartItemByUser(userName:string,id:number,cart:Cart): Observable<Object>{
+    return this.http.post(`${this.baseCreateCartItemURL}/${userName}/${id}`,cart,{ responseType: 'text' });
+  }
+  
+  removeCartItem(id: number):Observable<Object>{
+    return this.http.delete(`${this.baseRemoveCartItemURL}/${id}`);
+  }
+  
+  
+  //Products
+  getProducts(): Observable<Products[]>{
+    return this.http.get<Products[]>(`${this.baseProductUrl}`);
+  }
+  
   createNewProduct(id:number,product:Products):Observable<object>{
     return this.http.post(`${this.baseCreateNewProductURL}/${id}`,product,);
   }
@@ -121,16 +139,9 @@ export class OfsServiceService {
     return this.http.post(`${this.baseUpdateProductURL}`,product);
   }
 
-
   deleteProduct(productId: number) {
     return this.http.delete(`${this.baseDeleteProductURL}/${productId}`);
   }
-
-  UpdateOrder(order:Orders,id:number):Observable<object>{
-    return this.http.put(`${this.baseUpdateOrderURL}/${id}`,order);
-  }
-
- 
 
 
 }

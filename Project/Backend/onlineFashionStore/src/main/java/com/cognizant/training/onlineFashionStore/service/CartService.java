@@ -42,11 +42,29 @@ public class CartService {
 	}
 
 	public void addCart(Cart cart, int productId, String userName) {
+		if(cart.getQuantity()>productsRepo.findById(productId).get().getAvailability()) {
+			throw new ResourceNotFoundException("Sorry the item isn't available for the selected quantity :(  ");
+		}
+		
 		Products product = productsRepo.findById(productId).get();
 		Users user = usersRepo.getByUserName(userName);
-		cart.setProducts(product);
-		cart.setUsers(user);
-		cartRepo.save(cart);
+		Boolean set = false;
+
+		List<Cart> existingCart = allCartByUsers(userName);
+		for (Cart item : existingCart) {
+			if (item.getProducts().getProductId() == productId) {
+				item.setQuantity(item.getQuantity() + cart.getQuantity());
+				set = true;
+				cartRepo.save(item);
+			}
+
+		}
+
+		if (!set) {
+			cart.setProducts(product);
+			cart.setUsers(user);
+			cartRepo.save(cart);
+		}
 	}
 
 	public void removeCartItemByid(int id) {

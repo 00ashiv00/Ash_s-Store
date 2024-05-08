@@ -49,12 +49,17 @@ export class CategoryFilterComponent {
     }
 
     addToCart(id:number){
+      if (this.quant>0&&this.quant<=10){
       let userName=localStorage.getItem('session');
       this.cart.quantity=this.quant;
       this.service.createCartItemByUser(userName,id,this.cart).subscribe(data=>{
         console.log(data);
         alert(data);
       });
+    }
+    else{
+      alert("Please select quantity between 1 and 10");
+    }
     }
 
 }
