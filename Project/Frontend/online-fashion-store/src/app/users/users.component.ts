@@ -15,10 +15,16 @@ bToLogin() {
   this.router.navigate([''])
 }
 
-
+  allUsers:User[]=[];
   user:User=new User();
 
   constructor(private service:OfsServiceService,private router:Router){}
+
+  ngOnInit():void{
+    this.service.getUsers().subscribe((data:User[])=>{
+      this.allUsers=data;
+    })
+  }
 
   form = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -42,11 +48,30 @@ bToLogin() {
     this.user.address=this.form.get('address').value; 
     this.user.email=this.form.get('email').value; 
     this.user.mobileNo=this.form.get('mnumber').value; 
+
+    let save:boolean=this.checkUserName(this.user.userName);
+
+    if(save){
     this.service.createNewUser(this.user).subscribe(data=>{
       console.log(data);
     })
 
     this.router.navigate(['']);
+  }
+    else{
+      alert('UserName already exists.');
+    }
+  }
+
+
+  checkUserName(uName):boolean{
+    for(let item of this.allUsers){
+
+      if(item.userName===uName){
+        return false;
+      }
+    }
+    return true;
   }
   
 

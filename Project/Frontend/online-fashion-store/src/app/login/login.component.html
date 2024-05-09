@@ -18,17 +18,17 @@
               <h3 class="fw-normal mb-3 pb-3 text-info" style="letter-spacing: 1px;" >Heyaa!! (^o^) </h3>
   
               <div  class="form-outline mb-4">
-                <input type="email" id="uname" class="form-control form-control-lg" [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" />
+                <input type="email" id="uname" class="form-control form-control-lg" name="userName" [(ngModel)]="userName"  />
                 <label class="form-label" for="uname" >User Name</label>
               </div>
   
               <div  class="form-outline mb-4">
-                <input type="password" id="pass" class="form-control form-control-lg" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
+                <input type="password" id="pass" class="form-control form-control-lg" name="password"[(ngModel)]="password"  />
                 <label class="form-label" for="pass" >Password</label>
               </div>
               
               <div class="text-center">
-                <button class="btn btn-info btn-lg btn-block" type="button" (click)="saveData()">Login</button>
+                <button class="btn btn-info btn-lg btn-block" type="button" (click)="saveData()" [disabled]="userName==='' || password===''">Login</button>
               </div>
               
               

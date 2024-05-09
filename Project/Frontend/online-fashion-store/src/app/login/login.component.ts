@@ -10,8 +10,8 @@ import { User } from '../models/user';
 })
 export class LoginComponent {
 
-  userName:string;
-  password:string;
+  userName:string='';
+  password:string='';
   login=false;
 constructor(private service:OfsServiceService,private router:Router){}
 
