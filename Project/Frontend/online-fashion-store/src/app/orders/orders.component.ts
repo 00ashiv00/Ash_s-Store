@@ -33,15 +33,10 @@ export class OrdersComponent {
       
     },error=>alert(error.error)
     );
-    this.router.navigate(['homepage'])
+    window.location.reload();
 
   }
 
-  logout() {
-    localStorage.removeItem('session');
-    localStorage.removeItem('type');
-    this.router.navigate(['']);
-    }
  
 
   

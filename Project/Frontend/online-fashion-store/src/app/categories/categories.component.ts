@@ -20,9 +20,5 @@ export class CategoriesComponent {
     })
   }
 
-  logout() {
-    localStorage.removeItem('session');
-    localStorage.removeItem('type');
-    this.router.navigate(['']);
-    }
+
 }

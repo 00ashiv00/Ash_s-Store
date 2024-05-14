@@ -34,7 +34,8 @@ constructor(private service: OfsServiceService,private router:Router) { }
     this.service.createCartItemByUser(userName,id,this.cart).subscribe(data=>{
       console.log(data);
       alert(data);
-    },error=>console.log(error));
+      window.location.reload();
+    })
   }
   else{
     alert("Please select quantity between 1 and 10");
@@ -42,16 +43,11 @@ constructor(private service: OfsServiceService,private router:Router) { }
   }
 
 
-  onUpdateQuantity($event:Event){
+  onUpdateQuantity(event:Event){
     this.quant=Number((<HTMLInputElement>event.target).value);
     
   }
 
-  logout() {
-    localStorage.removeItem('session');
-    localStorage.removeItem('type');
-    this.router.navigate(['']);
-    }
 
   
 

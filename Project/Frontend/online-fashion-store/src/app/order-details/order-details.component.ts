@@ -22,15 +22,7 @@ export class OrderDetailsComponent {
       this.orderDetails = data;  
     });
 
-
-  }
-
-  logout() {
-    localStorage.removeItem('session');
-    localStorage.removeItem('type');
-    this.router.navigate(['']);
-    }
- 
+  } 
     
 
   }
