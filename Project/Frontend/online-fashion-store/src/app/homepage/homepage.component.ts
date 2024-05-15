@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
 export class HomepageComponent {
   constructor(private router:Router){}
   currentUser=localStorage.getItem('session')
+  searchItem: string = '';
+
+  goToProductSearch() {
+    this.router.navigate(['/products',this.searchItem]);
+
+  }
 
   logout() {
     localStorage.removeItem('session');

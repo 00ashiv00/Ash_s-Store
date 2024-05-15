@@ -7,12 +7,21 @@ import { Router } from '@angular/router';
   styleUrl: './user-header.component.css'
 })
 export class UserHeaderComponent {
-constructor(private router:Router){}
+
+  searchItem: string = '';
+
+  constructor(private router: Router) { }
+
+
+  goToProductSearch() {
+    this.router.navigate(['/products',this.searchItem]);
+
+  }
 
   logout() {
     localStorage.removeItem('session');
     localStorage.removeItem('type');
     this.router.navigate(['']);
-    }
+  }
 
 }

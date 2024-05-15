@@ -26,6 +26,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { AdminOrderDetailsComponent } from './admin-order-details/admin-order-details.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 
 
@@ -52,7 +54,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     AdminDashboardComponent,
     UserHeaderComponent,
     AdminOrderDetailsComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ForgotPasswordComponent,
+    ProductSearchComponent
   ],
   imports: [
     BrowserModule,

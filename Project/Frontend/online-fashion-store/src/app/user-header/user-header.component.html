@@ -3,7 +3,7 @@
     
   
     <div class="navbar-collapse ">
-      <ul class="navbar-nav " style="margin-left: 300px;">
+      <ul class="navbar-nav " style="margin-left: 137px;">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link " routerLink="/homepage">Home</a>
         </li>
@@ -17,6 +17,12 @@
           <a class="nav-link" routerLink="/orders">Orders</a>
         </li>
       </ul>
+
+      <form class="d-flex" style="margin-left: 63px;">
+        <input class="form-control me-2" type="search" placeholder="Look for it!" name="searchItem" [(ngModel)]="searchItem" >
+        <button class="btn btn-outline-success" type="submit" (click)="goToProductSearch()" [disabled]="searchItem===''" >Search</button>
+      </form>
+
       <ul class="navbar-nav ms-auto" style="margin-right:20px;">
         <li class="nav-item " routerLinkActive="active">
           <a class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart " aria-hidden="true">&nbsp;Cart</i></a>

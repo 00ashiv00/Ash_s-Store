@@ -3,9 +3,9 @@
     <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
       <a class="navbar-brand" routerLink="/homepage" style="font-family: Castellar;font-size: xx-large;">Ash's Store</a>
       
-      <span class="h5 text-success " style="margin-left: 20px;">Hello {{currentUser}}!</span>
+      <span class="h5 text-success " style="margin-left: 10px;">Hello&nbsp;{{currentUser}}!</span>
       <div class="navbar-collapse ">
-        <ul class="navbar-nav " style="margin-left: 180px;">
+        <ul class="navbar-nav " style="margin-left: 20px;">
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link " routerLink="/homepage">Home</a>
           </li>
@@ -19,12 +19,18 @@
             <a class="nav-link" routerLink="/orders">Orders</a>
           </li>
         </ul>
+
+        <form class="d-flex" style="margin-left: 63px;">
+          <input class="form-control me-2" type="search" placeholder="Look for it!" name="searchItem" [(ngModel)]="searchItem" >
+          <button class="btn btn-outline-success" type="submit" (click)="goToProductSearch()" [disabled]="searchItem===''" >Search</button>
+        </form>
+
         <ul class="navbar-nav ms-auto" style="margin-right:20px;">
           <li class="nav-item " routerLinkActive="active">
             <a class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart " aria-hidden="true">&nbsp;Cart</i></a>
           </li>
           <li class="nav-item " routerLinkActive="active">
-            <a class="nav-link" routerLink="/cart"><i class="fa fa-user" aria-hidden="true">&nbsp;My Account</i></a>
+            <a class="nav-link" routerLink="/user-details"><i class="fa fa-user" aria-hidden="true">&nbsp;My Account</i></a>
           </li>
         </ul>
         <button class="btn btn-danger"  style="margin-right:20px;"  (click)="logout()">Log out</button>

@@ -30,14 +30,11 @@ export class OrdersComponent {
     this.service.cancelTheOrder(id).subscribe(data=>{
       console.log(data);
       alert(data);
+      setTimeout(()=>{
+        window.location.reload();},1000);
       
-    },error=>alert(error.error)
-    );
-    window.location.reload();
+    });
+}
 
-  }
 
- 
-
-  
 }

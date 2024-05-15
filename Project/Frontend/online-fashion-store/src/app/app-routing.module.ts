@@ -13,11 +13,13 @@ import { CartComponent } from './cart/cart.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryFilterComponent } from './category-filter/category-filter.component';
 import { ErrorComponent } from './error/error.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 import { ProductsComponent } from './products/products.component';
 import { userAuthGuard } from './user-auth.guard';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -25,13 +27,15 @@ import { UsersComponent } from './users/users.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'sign-up', component: UsersComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'homepage',canActivate:[userAuthGuard],component: HomepageComponent },
   { path: 'orders', canActivate:[userAuthGuard],component: OrdersComponent },
   { path: 'order-details/:id',canActivate:[userAuthGuard], component: OrderDetailsComponent },
   { path: 'products',canActivate:[userAuthGuard], component: ProductsComponent },
+  { path: 'products/:name',canActivate:[userAuthGuard], component: ProductSearchComponent },
   { path: 'cart',canActivate:[userAuthGuard], component: CartComponent },
   { path: 'user-details',canActivate:[userAuthGuard], component: UserDetailsComponent },
-  { path: 'sign-up', component: UsersComponent },
   { path: 'categories', canActivate:[userAuthGuard],component: CategoriesComponent },
   { path: 'categories/:name', canActivate:[userAuthGuard],component: CategoryFilterComponent },
   {
