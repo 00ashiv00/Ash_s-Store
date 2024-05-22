@@ -13,13 +13,14 @@ export class LoginComponent {
   userName:string='';
   password:string='';
   login=false;
-constructor(private service:OfsServiceService,private router:Router){}
+constructor(private service:OfsServiceService,private router:Router){
+  if(localStorage.getItem('type')==='user'){
+    this.router.navigate(['/homepage']);
+  }
+}
 
   users:User[];
 
-  ngInOnit():void{
-    
-  }
 
   saveData(){
     this.service.getUsers().subscribe((data:User[])=>{
@@ -50,7 +51,6 @@ constructor(private service:OfsServiceService,private router:Router){}
     }
   
  
-  // localStorage.getItem('session',this.userName);
 }
 
 

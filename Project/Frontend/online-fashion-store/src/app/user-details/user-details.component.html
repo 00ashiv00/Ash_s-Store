@@ -47,12 +47,15 @@
                     <div class="col">
                         <label for="password">Password</label>
                         <input type="text" id="password" class="form-control" formControlName="password">
-        
-                        
                 </div>
+                
                 <div class="col mb-3">
-                    <label for="gender">Gender</label>
-                    <input type="text" id="gender" class="form-control" name="gender" formControlName="gender">
+                    <label class="form-label" for="gender" style="margin-bottom:0px">Gender</label><br>
+                        <select id="gender" style="margin-top:0px;width: 200px; height: 38px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; " class="ml-8" formControlName="gender"   >
+                          <option value="Female">Female</option>
+                          <option value="Male">Male</option>
+                          <option value="Other">Other</option>
+                        </select>
                 </div>
             </div>
 

@@ -30,10 +30,6 @@ public class Orders {
 	private Date orderDate;
 
 	
-//	@Temporal(TemporalType.DATE)
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
-//	private Date orderDate;
-	
 	@ManyToOne
 	@JoinColumn(name="userId")
 	@JsonIgnore

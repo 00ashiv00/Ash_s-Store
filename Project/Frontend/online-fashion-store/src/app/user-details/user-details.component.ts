@@ -20,19 +20,18 @@ export class UserDetailsComponent {
       console.log(data);
       this.users = data;
 
-      this.form = new FormGroup({
-        name: new FormControl(this.users.fullName, Validators.required),
-        userId: new FormControl(this.users.userId, Validators.required),
-        userName: new FormControl(this.users.userName, Validators.required),
-        password: new FormControl(this.users.password, [
-          Validators.required,
-          Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}')
-        ]),
-        gender: new FormControl(this.users.gender, Validators.required),
-        address: new FormControl(this.users.address, Validators.required),
-        email: new FormControl(this.users.email, [Validators.email,Validators.required]),
-        mnumber: new FormControl(this.users.mobileNo, [Validators.required,Validators.pattern('(?=.*[0-9]).{10,}')]),
+      this.form.setValue({
+        name: this.users.fullName,
+        userId:this.users.userId,
+        userName:this.users.userName,
+        password:this.users.password,
+        gender:this.users.gender,
+        address:this.users.address,
+        email:this.users.email,
+        mnumber:this.users.mobileNo
+        
       });
+
       this.form.get('name')?.disable();
       this.form.get('userId')?.disable();
       this.form.get('userName')?.disable();
@@ -62,8 +61,8 @@ export class UserDetailsComponent {
     ]),
     gender: new FormControl(this.users.gender, Validators.required),
     address: new FormControl(this.users.address, Validators.required),
-    email: new FormControl(this.users.email, [Validators.email,Validators.required]),
-    mnumber: new FormControl(this.users.mobileNo, [Validators.required,Validators.pattern('(?=.*[0-9]).{10,}')]),
+    email: new FormControl(this.users.email, [Validators.email, Validators.required]),
+    mnumber: new FormControl(this.users.mobileNo, [Validators.required, Validators.pattern('(?=.*[0-9]).{10,}')]),
   });
 
   updateToggler() {
@@ -78,6 +77,7 @@ export class UserDetailsComponent {
       this.form.get('gender')?.enable();
     }
     else {
+      this.ngOnInit();
       this.canUpdate = true;
       this.form.get('name')?.disable();
       this.form.get('userName')?.disable();
@@ -96,13 +96,13 @@ export class UserDetailsComponent {
 
 
   updateTheUser() {
-    this.users.fullName=this.form.get('name').value;
-    this.users.userName=this.form.get('userName').value;
-    this.users.address=this.form.get('address').value;
-    this.users.password=this.form.get('password').value;
-    this.users.email=this.form.get('email').value;
-    this.users.mobileNo=this.form.get('mnumber').value;
-    this.users.gender=this.form.get('gender').value;
+    this.users.fullName = this.form.get('name').value;
+    this.users.userName = this.form.get('userName').value;
+    this.users.address = this.form.get('address').value;
+    this.users.password = this.form.get('password').value;
+    this.users.email = this.form.get('email').value;
+    this.users.mobileNo = this.form.get('mnumber').value;
+    this.users.gender = this.form.get('gender').value;
     localStorage.setItem('session', this.users.userName);
     this.service.updateUser(this.users).subscribe((data: User) => {
       console.log(data);

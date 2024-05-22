@@ -13,7 +13,7 @@ import com.cognizant.training.onlineFashionStore.repository.UsersRepository;
 
 @Service
 public class UsersService {
-	
+
 	@Autowired
 	private UsersRepository usersRepo;
 
@@ -22,16 +22,15 @@ public class UsersService {
 	}
 
 	public Optional<Users> UserById(int userId) {
-		List<Users> users=new ArrayList<>();
-		users=usersRepo.findAll();
-		for(Users user:users) {
-			if(user.getUserId()==userId) {
+		List<Users> users = new ArrayList<>();
+		users = usersRepo.findAll();
+		for (Users user : users) {
+			if (user.getUserId() == userId) {
 				return usersRepo.findById(userId);
 			}
-		}throw new ResourceNotFoundException("User-id not found");
-		
-		
-		
+		}
+		throw new ResourceNotFoundException("User-id not found");
+
 	}
 
 	public void addUser(Users user) {
@@ -39,7 +38,12 @@ public class UsersService {
 	}
 
 	public void removeUserByid(int userId) {
-		usersRepo.deleteById(userId);
+		if (usersRepo.existsById(userId)) {
+			usersRepo.deleteById(userId);
+		}
+		else {
+			throw new ResourceNotFoundException("User does not exist.");
+		}
 	}
 
 	public Users getUserByUserName(String userName) {
@@ -48,7 +52,7 @@ public class UsersService {
 
 	public void UpdateUser(Users user) {
 		// TODO Auto-generated method stub
-		Users person=usersRepo.findById(user.getUserId()).get();
+		Users person = usersRepo.findById(user.getUserId()).get();
 		person.setUserName(user.getUserName());
 		person.setAddress(user.getAddress());
 		person.setFullName(user.getFullName());
@@ -60,11 +64,7 @@ public class UsersService {
 		person.setCart(user.getCart());
 		person.setPassword(user.getPassword());
 		usersRepo.save(person);
-		
+
 	}
-	
-	
-	
-	
 
 }

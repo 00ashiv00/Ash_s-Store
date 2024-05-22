@@ -31,7 +31,7 @@ export class OrdersComponent {
       console.log(data);
       alert(data);
       setTimeout(()=>{
-        window.location.reload();},1000);
+        window.location.reload();},700);
       
     });
 }

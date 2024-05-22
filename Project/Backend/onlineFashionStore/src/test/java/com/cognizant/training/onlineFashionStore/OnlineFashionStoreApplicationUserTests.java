@@ -9,22 +9,15 @@ import com.cognizant.training.onlineFashionStore.repository.UsersRepository;
 
 import jakarta.transaction.Transactional;
 
+@Transactional
 @SpringBootTest
-class OnlineFashionStoreApplicationTests {
+class OnlineFashionStoreApplicationUserTests {
 	
 	@Autowired
 	private UsersRepository usersRepo;
 	
 	@Test
 	public void testDelete() {
-		if(usersRepo.existsById(1006)) {
-			Users user = usersRepo.findById(1006).get();
-		usersRepo.delete(user);
-		}
-	}
-	
-	@Test
-	public void testCreate() {
 		if(usersRepo.existsById(1006)) {
 			Users user = usersRepo.findById(1006).get();
 		usersRepo.delete(user);
