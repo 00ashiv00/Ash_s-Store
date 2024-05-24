@@ -25,8 +25,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 	
 
 	
-	
-	//CartException
+	//ResourceNotFoundException
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ErrorDetails> handleCartEmptyException(Exception ex, WebRequest request) throws Exception {
 	
