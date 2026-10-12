@@ -29,7 +29,6 @@ Ash's Store is a comprehensive online fashion retail platform featuring a respon
 **Build & Testing:**
 - Maven (Backend)
 - Angular CLI (Frontend)
-- Jasmine & Karma (Frontend Testing)
 - JUnit (Backend Testing)
 
 ## 📁 Project Structure
